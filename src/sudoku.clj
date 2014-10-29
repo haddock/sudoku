@@ -40,7 +40,8 @@
     (set/difference all-values (block-values board coord) (row-values board coord) (col-values board coord))))
 
 (defn filled? [board]
-  nil)
+  (let [values (into #{} (for [row board value row] value))]
+    (not (contains? values 0))))
 
 (defn rows [board]
   nil)
