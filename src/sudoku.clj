@@ -16,7 +16,9 @@
   (into #{} (for [row board] (get row col))))
 
 (defn coord-pairs [coords]
-  nil)
+  (vec
+   (for [coord-outer coords coord-inner coords]
+     (vector coord-outer coord-inner))))
 
 (defn block-values [board coord]
   nil)
