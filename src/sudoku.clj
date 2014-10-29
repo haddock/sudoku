@@ -9,11 +9,11 @@
 (defn has-value? [board coord]
   (not (zero? (value-at board coord))))
 
-(defn row-values [board coord]
-  nil)
+(defn row-values [board [row _]]
+  (into #{} (get board row)))
 
-(defn col-values [board coord]
-  nil)
+(defn col-values [board [row col]]
+  (into #{} (for [row board] (get row col))))
 
 (defn coord-pairs [coords]
   nil)
