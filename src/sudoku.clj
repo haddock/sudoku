@@ -70,7 +70,7 @@
   (assoc-in board coord new-value))
 
 (defn find-empty-point [board]
-  nil)
+  (first (filter #(zero? (value-at board %)) (coord-pairs (range 0 (count board))))))
 
 (defn solve [board]
   nil)
