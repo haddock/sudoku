@@ -20,8 +20,17 @@
    (for [coord-outer coords coord-inner coords]
      (vector coord-outer coord-inner))))
 
+(defn- block-range [[x y]]
+  (let [top-left-x (* (quot x 3) 3)
+        top-left-y (* (quot y 3) 3)
+        bottom-right-x (+ top-left-x 3)
+        bottom-right-y (+ top-left-y 3)]
+    [top-left-x top-left-y bottom-right-x bottom-right-y]))
+
 (defn block-values [board coord]
-  nil)
+  (let [[top-left-x top-left-y bottom-right-x bottom-right-y] (block-range coord)]
+    (into #{} (for [x (range top-left-x bottom-right-x) y (range top-left-y bottom-right-y)]
+                (value-at board [x y])))))
 
 (defn valid-values-for [board coord]
   nil)
