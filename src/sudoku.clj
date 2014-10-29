@@ -47,13 +47,13 @@
   (map set board))
 
 (defn valid-rows? [board]
-  nil)
+  (every? #(= all-values %) (rows board)))
 
 (defn cols [board]
   (map set (apply map list board)))
 
 (defn valid-cols? [board]
-  nil)
+  (every? #(= all-values %) (cols board)))
 
 (defn blocks [board]
   (for [x (range 0 (count (get board 0)) 3)
@@ -61,7 +61,7 @@
     (block-values board [x y])))
 
 (defn valid-blocks? [board]
-  nil)
+  (every? #(= all-values %) (blocks board)))
 
 (defn valid-solution? [board]
   nil)
