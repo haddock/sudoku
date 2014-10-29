@@ -50,7 +50,7 @@
   nil)
 
 (defn cols [board]
-  nil)
+  (map set (apply map list board)))
 
 (defn valid-cols? [board]
   nil)
