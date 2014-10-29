@@ -73,4 +73,11 @@
   (first (filter #(zero? (value-at board %)) (coord-pairs (range 0 (count board))))))
 
 (defn solve [board]
-  nil)
+  (vec
+   (if (valid-solution? board)
+     board
+     (let [empty-point (find-empty-point board)
+           valid-vals (valid-values-for board empty-point)]
+       (for [value valid-vals
+             solution (solve (set-value-at board empty-point value))]
+         solution)))))
