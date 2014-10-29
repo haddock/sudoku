@@ -44,7 +44,7 @@
     (not (contains? values 0))))
 
 (defn rows [board]
-  nil)
+  (map set board))
 
 (defn valid-rows? [board]
   nil)
